@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+drinks = Drink.create([
+    {
+      type:'Champagne',
+      name:'2004 Dom Perignon',
+      location:'',
+      description:''
+    },
+    
+  ])
+  #
+  # t.string   "name"
+  # t.string   "location"
+  # t.text     "description"
+  # t.string   "type"

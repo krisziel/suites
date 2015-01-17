@@ -3,7 +3,13 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root to: 'sessions#show'
+  # get '/auth/twitter/callback' => 'user#login'
+
+  get '/auth/twitter/callback', to: 'sessions#create', as: 'callback'
+  get '/auth/failure', to: 'sessions#error', as: 'failure'
+  get '/profile', to: 'sessions#show', as: 'show'
+  delete '/signout', to: 'sessions#destroy', as: 'signout'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -12,8 +18,8 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
+  # resources :users
+  
   # Example resource route with options:
   #   resources :products do
   #     member do
