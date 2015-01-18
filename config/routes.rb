@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'sessions#show', as: 'show'
   delete '/signout', to: 'sessions#destroy', as: 'signout'
   get '/request', to: 'request#list', as: 'list'
-  post '/request', to: 'request#submit'
-  get '/request/thanks', to: 'request#thanks', as:'thanks'
+  post '/request', to: 'request#submit', :format => 'json'
+  # get '/request/thanks', to: 'request#thanks', as:'thanks', :format => 'json'
 
 end

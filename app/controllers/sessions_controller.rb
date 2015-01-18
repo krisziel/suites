@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     user_secret = request.env['omniauth.auth']['credentials']['secret']
     session[:access_token] = user_key
     session[:access_token_secret] = user_secret
-    new_user = User.create!(
+    new_user = Vote.create!(
       user_key: user_key,
       user_secret: user_secret,
       twitter_name: "#{client.user.name} (#{client.user.screen_name})"
