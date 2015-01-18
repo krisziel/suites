@@ -7,12 +7,16 @@ class SessionsController < ApplicationController
     user_secret = request.env['omniauth.auth']['credentials']['secret']
     session[:access_token] = user_key
     session[:access_token_secret] = user_secret
-    new_user = Vote.create!(
-      user_key: user_key,
-      user_secret: user_secret,
-      twitter_name: "#{client.user.name} (#{client.user.screen_name})"
-    )
-    session[:user_id] = new_user.id
+    existing = Vote.where(twitter_name: "#{client.user.name} (#{client.user.screen_name})")
+    if existing
+      session[:user_id] = existing[0].id
+    else
+      new_user = Vote.create!(
+        user_key: user_key,
+        user_secret: user_secret,
+        twitter_name: "#{client.user.name} (#{client.user.screen_name})"
+      )
+    end
     redirect_to list_path, notice: 'Signed in'
   end
 
