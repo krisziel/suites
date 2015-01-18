@@ -23,7 +23,7 @@
     <div class="info" style="height:auto;">
       <% Vote.all.each do |drink| %>
         <div>
-          <%= "#{drink.twitter_name} - #{drink.name}" %>
+          <%= "#{drink.twitter_name} - #{Drink.find(drink.drink_id).name}" %>
         </div>
       <% end %>
     </div>
