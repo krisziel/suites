@@ -1,7 +1,9 @@
 class RequestController < ApplicationController
 
   def splash
-
+    if(session[:user_id]&&Vote.find(session[:user_id]))
+      redirect_to list_path
+    end
   end
 
   def list

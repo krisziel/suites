@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def create
+    if(session[:user_id]&&Vote.find(session[:user_id]))
+      redirect_to list_path
+    end
     user_key = request.env['omniauth.auth']['credentials']['token']
     user_secret = request.env['omniauth.auth']['credentials']['secret']
     session[:access_token] = user_key
