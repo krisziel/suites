@@ -42,10 +42,9 @@ function hideInfo(drinkIndex) {
 
 function submitRequest() {
 	if($('input[name="selection"]:checked').val()) {
-		$.post('request/', { drink_id:$('input[name="selection"]:checked').val() }, function(data) {
+		$.post('/request/', { drink_id:$('input[name="selection"]:checked').val() }, function(data) {
 			if(data.message == "SUCCESS") {
 				alert('Your request has been saved. Come back to change it whenever.');
-				window.location.href = 'https://twitter.com/kziel'
 			}
 		});
 	} else {
