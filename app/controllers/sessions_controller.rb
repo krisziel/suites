@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
         user_secret: user_secret,
         twitter_name: "#{client.user.name} (#{client.user.screen_name})"
       )
+      session[:user_id] = new_user.id
     end
     redirect_to list_path, notice: 'Signed in'
   end
