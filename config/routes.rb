@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root to: 'sessions#show'
-  # get '/auth/twitter/callback' => 'user#login'
+  root to: 'request#splash'
+  get '/auth/twitter' => 'session#show', as:'login'
 
   get '/auth/twitter/callback', to: 'sessions#create', as: 'callback'
   get '/auth/failure', to: 'sessions#error', as: 'failure'

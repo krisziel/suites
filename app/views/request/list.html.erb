@@ -2,21 +2,27 @@
 <html>
 	<meta charset="utf-8">
 	<head>
+		<title>@kziel Suites Drink Request</title>
 		<script>
 			var drinks = <%= raw(@drinks.to_json) %>;
 		</script>
 	</head>
 	<body>
 		<div class="cheatline">
-			<div class="title"><a href="http://twitter.com/kziel">@kziel</a> Suites Drink Request</div>
+			<div class="title up"><a href="http://twitter.com/kziel">@kziel</a> Suites Drink Request</div>
 			<div class="blue"></div>
 			<div class="gold"></div>
 			<div class="yellow"></div>
 			<div class="slant"></div>
 			<div class="logo"></div>
 			<div class="text">
-				<span>I've got 21 hours in Singapore Suites and another 4 in Singapore First. Request a single drink and I'll drink the whole thing,</span><br> no matter how bad it is. And tweet you a photo #kzielsuitesdrink.
+				<span>I've got 21 hours in Singapore Suites and another 4 in Singapore First. Request a single drink</span><br> and I'll drink the whole thing, no matter how bad it is. And tweet you a photo #kzielsuitesdrink.
 			</div>
+			<% if @user.drink_id %>
+				<div class="previous">Welcome back, <%= @user.twitter_name.split(' (')[0] %>, you previously requested <%= Drink.find(@user.drink_id).name %></div>
+			<% else %>
+				<div class="user"><%= @user.twitter_name %></div>
+			<% end %>
 		</div>
 		<div class="container">
 			<div class="info">
@@ -25,7 +31,7 @@
 			<div class="list">
 			</div>
 			<div class="request">Request</div>
-			<div class="disclaimer">I think you can come back at any time to update your vote. Maybe.<br><a href="http://onemileatatime.boardingarea.com/2014/12/01/review-singapore-airlines-suites-class-a380-new-york-to-frankfurt/">Drink list from One Mile at a Time</a></div>
+			<div class="disclaimer">In theory you can come back to change your vote at any time.<br><a href="http://onemileatatime.boardingarea.com/2014/12/01/review-singapore-airlines-suites-class-a380-new-york-to-frankfurt/">Drink list from One Mile at a Time</a></div>
 		</div>
 	</body>
 </html>

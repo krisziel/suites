@@ -110,12 +110,12 @@ body {
 	position: relative;
 	text-align: center;
 }
+.title.up {
+	top: 6px;
+}
 a {
 	color: inherit;
 	text-decoration: inherit;
-}
-a:hover {
-	color: #FBA34C;
 }
 .cheatline > .blue {
 	background: #294b88;
@@ -138,7 +138,6 @@ a:hover {
 	top: 83px;
 	width: 100%;
 	position: absolute;
-
 }
 .cheatline > .logo {
 	height: 90px;
@@ -157,6 +156,23 @@ a:hover {
 	position: absolute;
 	top: -70px;
 	right: -50px;
+}
+.cheatline > .user {
+	position: absolute;
+	right: 190px;
+	top: 7px;
+	color: #ffffff;
+}
+.cheatline > .previous {
+	width: 900px;
+	font-weight: lighter;
+	text-align: center;
+	font-size: 16px;
+	line-height: 17px;
+	top: -30px;
+	position: relative;
+	margin: 0 auto;
+	color: #ffffff;
 }
 .request {
 	margin: 0 auto;
@@ -190,4 +206,15 @@ a:hover {
 }
 .text > span {
 	color: #ffffff;
+}
+.splash {
+	margin-top: 20px;
+	font-size: 18px;
+	text-align: center;
+}
+.splash > a {
+	color: #294b88;
+}
+a:hover {
+	color: #FBA34C;
 }

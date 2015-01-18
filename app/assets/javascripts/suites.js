@@ -44,7 +44,7 @@ function submitRequest() {
 	if($('input[name="selection"]:checked').val()) {
 		$.post('request/', { drink_id:$('input[name="selection"]:checked').val() }, function(data) {
 			if(data.message == "SUCCESS") {
-				alert('Thanks for the request. Actually, I should probably hold off on thanks until drinking it.');
+				alert('Your request has been saved. Come back to change it whenever.');
 				window.location.href = 'https://twitter.com/kziel'
 			}
 		});
