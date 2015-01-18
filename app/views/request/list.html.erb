@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<head>
+		<script>
+			var drinks = <%= raw(@drinks.to_json) %>;
+		</script>
+		<link rel="stylesheet" href="css/suites.css" />
+	</head>
+	<body>
+		<div class="cheatline">
+			<div class="title"><a href="http://twitter.com/kziel">@kziel</a> Suites Drink Request</div>
+			<div class="blue"></div>
+			<div class="gold"></div>
+			<div class="yellow"></div>
+			<div class="slant"></div>
+			<div class="logo"></div>
+			<div class="text">
+				<span>I've got 21 hours in Singapore Suites and another 4 in Singapore First. Request a single drink and I'll drink the whole thing,</span><br> no matter how bad it is. And tweet you a photo #kzielsuitesdrink.
+			</div>
+		</div>
+		<div class="container">
+			<div class="info">
+				<div class="click">Click a drink for a description</div>
+			</div>
+			<div class="list">
+			</div>
+			<div class="request">Request</div>
+			<div class="disclaimer">Request is basically final unless you either inform me otherwise or I decide to spend some more time making votes changable.<br><a href="http://onemileatatime.boardingarea.com/2014/12/01/review-singapore-airlines-suites-class-a380-new-york-to-frankfurt/">Drink list from One Mile at a Time</a></div>
+		</div>
+	</body>
+</html>

@@ -1,8 +1,16 @@
 class SessionsController < ApplicationController
   def create
-    session[:access_token] = request.env['omniauth.auth']['credentials']['token']
-    session[:access_token_secret] = request.env['omniauth.auth']['credentials']['secret']
-    redirect_to show_path, notice: 'Signed in'
+    user_key = request.env['omniauth.auth']['credentials']['token']
+    user_secret = request.env['omniauth.auth']['credentials']['secret']
+    session[:access_token] = user_key
+    session[:access_token_secret] = user_secret
+    new_user = User.create!(
+      user_key: user_key,
+      user_secret: user_secret,
+      twitter_name: "#{client.user.name} (#{client.user.screen_name})"
+    )
+    session[:user_id] = new_user.id
+    redirect_to list_path, notice: 'Signed in'
   end
 
   def show
