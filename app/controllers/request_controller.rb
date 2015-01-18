@@ -34,4 +34,8 @@ class RequestController < ApplicationController
     end
   end
 
+  def kziel
+    @timeline = client.user_timeline("kziel",{count: 200, include_rts: true})
+  end
+
 end

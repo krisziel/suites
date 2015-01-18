@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/request', to: 'request#list', as: 'list'
   post '/request', to: 'request#submit', :format => 'json'
   get '/request/list', to: 'request#requests'
+  get '/kziel', to: 'request#kziel', :format => 'json'
   # get '/request/thanks', to: 'request#thanks', as:'thanks', :format => 'json'
 
 end
