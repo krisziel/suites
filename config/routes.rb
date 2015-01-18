@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/signout', to: 'sessions#destroy', as: 'signout'
   get '/request', to: 'request#list', as: 'list'
   post '/request', to: 'request#submit', :format => 'json'
+  get '/request/list', to: 'request#requests'
   # get '/request/thanks', to: 'request#thanks', as:'thanks', :format => 'json'
 
 end

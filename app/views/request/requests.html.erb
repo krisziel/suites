@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+  <title>@kziel Suites Drink Request</title>
+  <script>
+  var drinks = <%= raw(@drinks.to_json) %>;
+  </script>
+</head>
+<body>
+  <div class="cheatline">
+    <div class="title"><a href="http://twitter.com/kziel">@kziel</a> Suites Drink Request</div>
+    <div class="blue"></div>
+    <div class="gold"></div>
+    <div class="yellow"></div>
+    <div class="slant"></div>
+    <div class="logo"></div>
+    <div class="text">
+      <span>I've got 21 hours in Singapore Suites and another 4 in Singapore First. Request a single drink and I'll drink the whole thing,</span><br> no matter how bad it is. And tweet you a photo #kzielsuitesdrink.
+    </div>
+  </div>
+  <div class="container">
+    <div class="info" style="height:auto;">
+      <% Vote.all.each do |drink| %>
+        <div>
+          <%= "#{drink.twitter_name} - #{drink.name}" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>

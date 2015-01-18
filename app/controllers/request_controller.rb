@@ -28,4 +28,10 @@ class RequestController < ApplicationController
     end
   end
 
+  def requests
+    if(!session[:user_id]||Vote.find(session[:user_id]).twitter_name != "Kris Ziel (kziel)")
+      redirect_to list_path
+    end
+  end
+
 end
