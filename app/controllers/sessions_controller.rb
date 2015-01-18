@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     session[:access_token] = user_key
     session[:access_token_secret] = user_secret
     existing = Vote.where(twitter_name: "#{client.user.name} (#{client.user.screen_name})")
-    if existing
+    if existing.length > 0
       session[:user_id] = existing[0].id
     else
       new_user = Vote.create!(
