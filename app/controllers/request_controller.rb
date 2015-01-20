@@ -35,7 +35,15 @@ class RequestController < ApplicationController
   end
 
   def kziel
-    @timeline = client.user_timeline("kziel",{count: 200, include_rts: true})
+    new_client = Twitter::REST::Client.new
+    new_client.consumer_key = ENV['CONSUMER_KEY']
+    new_client.consumer_secret = ENV['CONSUMER_SECRET']
+    new_client.access_token = ENV['ACCESS_TOKEN']
+    new_client.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
+    count = params[:count] || 200
+    since_id = params[:since_id] || 0
+    exclude_replies = params[:exclude_replies] || false
+    @timeline = new_client.user_timeline("kziel",{count: count, since_id:since_id, exclude_replies:exclude_replies, include_rts: true})
   end
 
 end
