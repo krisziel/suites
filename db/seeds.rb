@@ -75,110 +75,134 @@ drinks = Drink.create([
     },
     {
       drinktype:'Singapore Airlines’ Unique Creations',
-      name:'Sunrise Breezer',
+      name:'Jubilee Lining',
       location:'',
-      description:'A refreshing blend of sake and bitter lemon'
+      description:'A zesty cocktail created with Cointreau, vodka, pineapple juice, topped with soda'
     },
     {
       drinktype:'Singapore Airlines’ Unique Creations',
-      name:'Alspritizer',
+      name:'Kris in Love',
       location:'',
-      description:'A sparkling mix of vodka shaken with apple juice and 7-Up'
+      description:'A delightful concoction of white wine stirred up with 7-Up'
     },
     {
       drinktype:'Singapore Airlines’ Unique Creations',
-      name:'Sweetness in Darkness',
+      name:'Rumba',
       location:'',
-      description:'A unique mix of red wine and a splash of Coke'
+      description:'An exotic thirst quencher of rum mixed with pineapple juice and 7-Up'
     },
     {
       drinktype:'Singapore Airlines’ Unique Creations',
-      name:'Solitaire Dreams',
+      name:'Skyhigh',
       location:'',
-      description:'A cool concoction of run, pineapple juice, Sling mix with ginger ale'
+      description:'An invigorating recipe featuring vodka, Cointreau and lemon, topped with 7-Up'
     },
-    {
-      drinktype:'Singapore Airlines’ Unique Creations',
-      name:'Vodka Flush',
-      location:'',
-      description:'A tantalising drink of vodka, apple juice, and bitter lemon, topped with 7-Up'
-    },
-    {
-      drinktype:'All-Time Favorites',
-      name:'Dry Martini',
-      location:'',
-      description:'A classic mix of gin and dry vermouth stirred over ice, garnished with olive'
-    },
+    # {
+    #   drinktype:'Singapore Airlines’ Unique Creations',
+    #   name:'Sunrise Breezer',
+    #   location:'',
+    #   description:'A refreshing blend of sake and bitter lemon'
+    # },
+    # {
+    #   drinktype:'Singapore Airlines’ Unique Creations',
+    #   name:'Alspritizer',
+    #   location:'',
+    #   description:'A sparkling mix of vodka shaken with apple juice and 7-Up'
+    # },
+    # {
+    #   drinktype:'Singapore Airlines’ Unique Creations',
+    #   name:'Sweetness in Darkness',
+    #   location:'',
+    #   description:'A unique mix of red wine and a splash of Coke'
+    # },
+    # {
+    #   drinktype:'Singapore Airlines’ Unique Creations',
+    #   name:'Solitaire Dreams',
+    #   location:'',
+    #   description:'A cool concoction of run, pineapple juice, Sling mix with ginger ale'
+    # },
+    # {
+    #   drinktype:'Singapore Airlines’ Unique Creations',
+    #   name:'Vodka Flush',
+    #   location:'',
+    #   description:'A tantalising drink of vodka, apple juice, and bitter lemon, topped with 7-Up'
+    # },
+    # {
+    #   drinktype:'All-Time Favorites',
+    #   name:'Dry Martini',
+    #   location:'',
+    #   description:'A classic mix of gin and dry vermouth stirred over ice, garnished with olive'
+    # },
     {
       drinktype:'All-Time Favorites',
       name:'Singapore Sling',
       location:'',
       description:'Synonymous with the Lion City since the early 1990s, this classic cocktail is made with dry gin, DOM Benedictine, orange liqueur, cherry brandy, Angostura bitters and Grenadine, mixed with lime and pineapple juice'
-    },
-    {
-      drinktype:'All-Time Favorites',
-      name:'Screwdriver',
-      location:'',
-      description:'A classic concoction of vodka and orange juice'
-    },
-    {
-      drinktype:'Spirits',
-      name:'Macallan 12-Year-Old Single Malt Whisky',
-      location:'',
-      description:'A time-honored distillation process and the traditional skills of master craftsmen create a satisfyingly complex single malt characterized by a full-bodied flavor with hints of dried fruit and spice.'
-    },
-    {
-      drinktype:'Spirits',
-      name:'Hennessy Congac XO',
-      location:'',
-      description:''
-    },
-    {
-      drinktype:'Spirits',
-      name:'Johnnie Walker Blue Label',
-      location:'',
-      description:''
-    },
-    {
-      drinktype:'Spirits',
-      name:'Jack Daniel’s Tennessee Whiskey',
-      location:'',
-      description:''
-    },
-    {
-      drinktype:'Spirits',
-      name:'Bombay Sapphire Gin',
-      location:'',
-      description:''
-    },
-    {
-      drinktype:'Spirits',
-      name:'Belvedere Vodka',
-      location:'',
-      description:''
-    },
-    {
-      drinktype:'Spirits',
-      name:'Bacardi Superior',
-      location:'',
-      description:''
-    },
-    {
-      drinktype:'Spirits',
-      name:'Momono Shizuku Sake',
-      location:'',
-      description:'A premium Junmai-Daiginjo sake from Kyoyo prefecture, named after a haiku by the famous poet Matsuo Basho'
-    },
-    {
-      drinktype:'Liqueurs',
-      name:'Grand Marnier',
-      location:'',
-      description:''
-    },
-    {
-      drinktype:'Liqueurs',
-      name:'Bailey’s Original Irish Cream',
-      location:'',
-      description:''
     }
+    # {
+    #   drinktype:'All-Time Favorites',
+    #   name:'Screwdriver',
+    #   location:'',
+    #   description:'A classic concoction of vodka and orange juice'
+    # },
+    # {
+    #   drinktype:'Spirits',
+    #   name:'Macallan 12-Year-Old Single Malt Whisky',
+    #   location:'',
+    #   description:'A time-honored distillation process and the traditional skills of master craftsmen create a satisfyingly complex single malt characterized by a full-bodied flavor with hints of dried fruit and spice.'
+    # },
+    # {
+    #   drinktype:'Spirits',
+    #   name:'Hennessy Congac XO',
+    #   location:'',
+    #   description:''
+    # },
+    # {
+    #   drinktype:'Spirits',
+    #   name:'Johnnie Walker Blue Label',
+    #   location:'',
+    #   description:''
+    # },
+    # {
+    #   drinktype:'Spirits',
+    #   name:'Jack Daniel’s Tennessee Whiskey',
+    #   location:'',
+    #   description:''
+    # },
+    # {
+    #   drinktype:'Spirits',
+    #   name:'Bombay Sapphire Gin',
+    #   location:'',
+    #   description:''
+    # },
+    # {
+    #   drinktype:'Spirits',
+    #   name:'Belvedere Vodka',
+    #   location:'',
+    #   description:''
+    # },
+    # {
+    #   drinktype:'Spirits',
+    #   name:'Bacardi Superior',
+    #   location:'',
+    #   description:''
+    # },
+    # {
+    #   drinktype:'Spirits',
+    #   name:'Momono Shizuku Sake',
+    #   location:'',
+    #   description:'A premium Junmai-Daiginjo sake from Kyoyo prefecture, named after a haiku by the famous poet Matsuo Basho'
+    # },
+    # {
+    #   drinktype:'Liqueurs',
+    #   name:'Grand Marnier',
+    #   location:'',
+    #   description:''
+    # },
+    # {
+    #   drinktype:'Liqueurs',
+    #   name:'Bailey’s Original Irish Cream',
+    #   location:'',
+    #   description:''
+    # }
   ])

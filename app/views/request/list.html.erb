@@ -5,6 +5,8 @@
 		<title>@kziel Suites Drink Request</title>
 		<script>
 			var drinks = <%= raw(@drinks.to_json) %>;
+			var votes = <%= raw(@votes.to_json) %>;
+			var selected = <%= @user.drink_id || "none" %>;
 		</script>
 	</head>
 	<body>

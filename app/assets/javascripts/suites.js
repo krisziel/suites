@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	makeList();
+	// $('input[name="selection"][value="' + selected + '"]').click();
 	$('.request').bind('click',function(){
 		submitRequest();
 	});
@@ -29,9 +30,22 @@ function drinkInfo(drinkIndex) {
 		if(drink.description.length > 0) {
 			drinkInfo += '<div class="description">' + drink.description + '</div>';
 		}
+		var displayRequests = false;
+		var others = 'Other requestors: ';
+		$.each(votes,function(i,vote){
+			if((vote.drink)&&(vote.drink === drink.id)) {
+				var twitterLink = vote.name.split(' (')[1]
+				others += '<a href="https://twitter.com/' + twitterLink.substring(0,twitterLink.length-1) + '" target="_blank">' + vote.name + '</a>';
+				displayRequests = true;
+			}
+		});
+		if(displayRequests === true) {
+			drinkInfo += others;
+		}
 		$('.info').append($('<div>').attr('id','info' + drinkIndex).addClass('drink-info').html(drinkInfo));
 	}
 	$('#drink' + drinkIndex + ' > input').attr('checked', true);
+	$('.info').animate({height:$('#info' + drinkIndex).height()+15});
 	setTimeout(function(){ $('#info' + drinkIndex).fadeIn(); },300);
 	$('.info > *:not(#info' + drinkIndex + ')').fadeOut();
 }
