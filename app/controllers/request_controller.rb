@@ -1,4 +1,6 @@
 class RequestController < ApplicationController
+  protect_from_forgery except: :kziel
+  
   def splash
     if(session[:user_id]&&Vote.find(session[:user_id]))
       redirect_to list_path
