@@ -1,14 +1,15 @@
 class RequestController < ApplicationController
   protect_from_forgery except: :kziel
-  
+
   def splash
-    if(session[:user_id]&&Vote.find(session[:user_id]))
+    @drinks = Drink.all
+    if(cookies.signed[:user_id]&&Vote.find(cookies.signed[:user_id]))
       redirect_to list_path
     end
   end
 
   def list
-    if(!session[:user_id]||(!Vote.find(session[:user_id])))
+    if(!cookies.signed[:user_id]||(!Vote.find(cookies.signed[:user_id])))
       redirect_to root_path
     else
       @drinks = Drink.all
@@ -19,15 +20,23 @@ class RequestController < ApplicationController
           :drink => vote.drink_id
         })
       end
-      @user = Vote.find(session[:user_id])
+      @user = Vote.find(cookies.signed[:user_id])
+      authorized_users = ENV['GUARANTEED_USERS'].split(',')
+      twitter_handle = @user.twitter_name.split(" (")[1]
+      twitter_handle = twitter_handle[0..twitter_handle.length-2]
+      if authorized_users.index(twitter_handle.downcase)
+        @guaranteed = true
+      else
+        @guaranteed = false
+      end
     end
   end
 
   def submit
-    if(!session[:user_id]||(!Vote.find(session[:user_id])))
+    if(!cookies.signed[:user_id]||(!Vote.find(cookies.signed[:user_id])))
       redirect_to root_path
     else
-      vote = Vote.find(session[:user_id])
+      vote = Vote.find(cookies.signed[:user_id])
       if(vote)
         vote.update(drink_id: params[:drink_id])
       else
@@ -37,7 +46,7 @@ class RequestController < ApplicationController
   end
 
   def requests
-    if(!session[:user_id]||!Vote.find(session[:user_id])||Vote.find(session[:user_id]).twitter_name != "Kris Ziel (kziel)")
+    if(!cookies.signed[:user_id]||!Vote.find(cookies.signed[:user_id])||Vote.find(cookies.signed[:user_id]).twitter_name != "Kris Ziel (kziel)")
       redirect_to list_path
     end
   end

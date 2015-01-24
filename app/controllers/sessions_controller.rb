@@ -1,28 +1,40 @@
 class SessionsController < ApplicationController
   def create
-    if(session[:user_id]&&Vote.find(session[:user_id]))
+    if(cookies.signed[:user_id]&&Vote.find(cookies.signed[:user_id]))
       redirect_to list_path
     end
     user_key = request.env['omniauth.auth']['credentials']['token']
     user_secret = request.env['omniauth.auth']['credentials']['secret']
-    session[:access_token] = user_key
-    session[:access_token_secret] = user_secret
+    cookies.signed[:access_token] = {
+      value: user_key,
+      expires: 1.month.from_now
+    }
+    cookies.signed[:access_token_secret] = {
+      value: user_secret,
+      expires: 1.month.from_now
+    }
     existing = Vote.where(twitter_name: "#{client.user.name} (#{client.user.screen_name})")
     if existing.length > 0
-      session[:user_id] = existing[0].id
+      cookies.signed[:user_id] = {
+        value: existing[0].id,
+        expires: 1.month.from_now
+      }
     else
       new_user = Vote.create!(
         user_key: user_key,
         user_secret: user_secret,
         twitter_name: "#{client.user.name} (#{client.user.screen_name})"
       )
-      session[:user_id] = new_user.id
+      cookies.signed[:user_id] = {
+        value: new_user.id,
+        expires: 1.month.from_now
+      }
     end
     redirect_to list_path, notice: 'Signed in'
   end
 
   def show
-    if session['access_token'] && session['access_token_secret']
+    if cookies.signed['access_token'] && cookies.signed['access_token_secret']
       @user = client.user(include_entities: true)
     else
       redirect_to failure_path

@@ -30,17 +30,15 @@ function drinkInfo(drinkIndex) {
 		if(drink.description.length > 0) {
 			drinkInfo += '<div class="description">' + drink.description + '</div>';
 		}
-		var displayRequests = false;
-		var others = 'Other requestors: ';
+		var others = [];
 		$.each(votes,function(i,vote){
 			if((vote.drink)&&(vote.drink === drink.id)) {
 				var twitterLink = vote.name.split(' (')[1]
-				others += '<a href="https://twitter.com/' + twitterLink.substring(0,twitterLink.length-1) + '" target="_blank">' + vote.name + '</a>';
-				displayRequests = true;
+				others.push('<a href="https://twitter.com/' + twitterLink.substring(0,twitterLink.length-1) + '" target="_blank">' + vote.name + '</a>');
 			}
 		});
-		if(displayRequests === true) {
-			drinkInfo += others;
+		if(others.length > 0) {
+			drinkInfo += 'Other requestors: ' + others.join(", ");
 		}
 		$('.info').append($('<div>').attr('id','info' + drinkIndex).addClass('drink-info').html(drinkInfo));
 	}
