@@ -6,7 +6,7 @@
 		<script>
 			var drinks = <%= raw(@drinks.to_json) %>;
 			var votes = <%= raw(@votes.to_json) %>;
-			var selected = <%= @user.drink_id || "\"\"" %>;
+			var selected = <%= @user.drink_id || "\"none\"" %>;
 		</script>
 	</head>
 	<body>
