@@ -18,11 +18,7 @@
 			<div class="slant"></div>
 			<div class="logo"></div>
 			<div class="text">
-				<% if @guaranteed %>
-					<span>Changed flights. Going home in Suites. You know the drill.</span><br>Please do not select the type of drink you selected last time.
-				<% else %>
-					<span>I've got 21 hours in Singapore Suites and another 4 in Singapore First. Request a drink</span><br> and I'll will make an effort to drink it and tweet you a photo.
-				<% end %>
+				<span>I've got 28 hours in Singapore Suites. Request a drink</span><br> and I will make an effort to drink it and tweet you a photo.
 			</div>
 			<% if @user.drink_id %>
 				<div class="previous">Welcome back, <%= @user.twitter_name.split(' (')[0] %>, you previously requested <%= Drink.find(@user.drink_id).name %></div>

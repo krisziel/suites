@@ -57,10 +57,12 @@ class RequestController < ApplicationController
     new_client.consumer_secret = ENV['CONSUMER_SECRET']
     new_client.access_token = ENV['ACCESS_TOKEN']
     new_client.access_token_secret = ENV['ACCESS_TOKEN_SECRET']
+    headers['Access-Control-Allow-Origin'] = '*'
     count = params[:count] || 200
-    since_id = params[:since_id] || 0
+    since_id = params[:since_id] || 1
     exclude_replies = params[:exclude_replies] || false
     @timeline = new_client.user_timeline("kziel",{count: count, since_id:since_id, exclude_replies:exclude_replies, include_rts: true})
+    render :json => @timeline, :callback => params[:callback]
   end
 
 end
