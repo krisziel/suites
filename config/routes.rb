@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/request', to: 'request#submit', :format => 'json'
   get '/request/list', to: 'request#requests'
   get '/kziel', to: 'request#kziel', :format => 'js'
+  get '/request/new', to: 'request#newdrinks', :format => 'json'
   # get '/request/thanks', to: 'request#thanks', as:'thanks', :format => 'json'
 
 end
