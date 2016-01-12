@@ -21,14 +21,7 @@ class RequestController < ApplicationController
         })
       end
       @user = Vote.find(cookies.signed[:user_id])
-      authorized_users = ENV['GUARANTEED_USERS'].split(',')
-      twitter_handle = @user.twitter_name.split(" (")[1]
-      twitter_handle = twitter_handle[0..twitter_handle.length-2]
-      if authorized_users.index(twitter_handle.downcase)
-        @guaranteed = true
-      else
-        @guaranteed = false
-      end
+      @guaranteed = false
     end
   end
 

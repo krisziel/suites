@@ -1,6 +1,4 @@
 class UserController < ApplicationController
-  $access_token = '12155422-FPwVh3EbCGzWMcqtrNCLSu5sU4buMVyzKsFoshiy9'
-  $access_token_secret = 'm68SKNQmASgzBNolR1vX86iqvTagNbUzhi2FBDCRHQnZR'
   def show
     # @error = []
     # if twitter.credentials[:token] && twitter.credentials[:token_secret]
